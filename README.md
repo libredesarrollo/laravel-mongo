@@ -1,61 +1,89 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# Laravel MongoDB - Sistema de Gestión de Libros y Eventos
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+![Laravel Version](https://img.shields.io/badge/Laravel-11.x-red)
+![PHP Version](https://img.shields.io/badge/PHP-8.2%2B-blue)
+![MongoDB](https://img.shields.io/badge/MongoDB-Official-green)
 
-## About Laravel
+Este proyecto es una aplicación moderna basada en **Laravel 11** que utiliza **MongoDB** como base de datos principal a través de la integración oficial de MongoDB para Laravel. Originalmente creado en 2021, el proyecto ha sido actualizado en 2026 para cumplir con los estándares actuales de rendimiento y seguridad.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 🚀 Características
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Arquitectura Moderna**: Actualizado a Laravel 11 con modelos en `App\Models`.
+- **Integración MongoDB**: Uso de `mongodb/laravel-mongodb` para un soporte robusto de NoSQL.
+- **Gestión de Libros**: CRUD completo con relaciones entre categorías y etiquetas (Tags).
+- **Calendario de Eventos**: Integración con FullCalendar 5 para la gestión de fechas y eventos.
+- **Autenticación**: Sistema de usuarios adaptado para MongoDB.
+- **Frontend**: Estilizado con **Bootstrap 5** y FontAwesome 5.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 📋 Requisitos Propios
 
-## Learning Laravel
+- **PHP**: 8.2 o superior.
+- **Extensión PHP**: `mongodb` (obligatoria).
+- **MongoDB**: Servidor local o en la nube (Atlas).
+- **Composer**: Para la gestión de dependencias PHP.
+- **Node.js & NPM**: Para la compilación de assets.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🛠️ Instalación
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. **Clonar el repositorio**:
+   ```bash
+   git clone <url-del-repositorio>
+   cd laravel-mongo
+   ```
 
-## Laravel Sponsors
+2. **Instalar dependencias**:
+   ```bash
+   composer install
+   npm install
+   ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+3. **Configuración del entorno**:
+   Copia el archivo de ejemplo y configura tus credenciales de MongoDB:
+   ```bash
+   cp .env.example .env
+   ```
+   Asegúrate de ajustar las siguientes variables en tu `.env`:
+   ```env
+   DB_CONNECTION=mongodb
+   DB_HOST=127.0.0.1
+   DB_PORT=27017
+   DB_DATABASE=laramongo
+   # O usa DSN para MongoDB Atlas:
+   # DB_DSN=mongodb+srv://user:pass@cluster.mongodb.net/dbname
+   ```
 
-### Premium Partners
+4. **Generar la clave de la aplicación**:
+   ```bash
+   php artisan key:generate
+   ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[OP.GG](https://op.gg)**
+5. **Compilar assets**:
+   ```bash
+   npm run dev
+   ```
 
-## Contributing
+6. **Ejecutar el servidor**:
+   ```bash
+   php artisan serve
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 📂 Estructura de Modelos (MongoDB)
 
-## Code of Conduct
+Los modelos se encuentran en `app/Models/` y utilizan el trait de Eloquent para MongoDB:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **Book**: Gestión de títulos, precios y clasificaciones.
+- **Category**: Categorización de libros.
+- **Tag**: Etiquetas para filtrado avanzado.
+- **Event**: Datos para el calendario dinámico.
+- **User**: Usuarios del sistema.
 
-## Security Vulnerabilities
+## 📄 Licencia
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+Este proyecto es de código abierto bajo la licencia [MIT](https://opensource.org/licenses/MIT).
 
-## License
+Más información en
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+https://www.desarrollolibre.net/blog/laravel/curso-laravel
+
+---
+*Actualizado por Andres Cruz - 2026*

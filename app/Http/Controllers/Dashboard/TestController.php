@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Book;
-use App\Event;
+use App\Models\Book;
+use App\Models\Event;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 

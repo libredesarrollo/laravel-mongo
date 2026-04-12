@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Book;
-use App\Category;
+use App\Models\Book;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SaveBook;
-use App\Tag;
+use App\Models\Tag;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;

@@ -1,10 +1,10 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 //use Illuminate\Database\Eloquent\Model;
 
-use Jenssegers\Mongodb\Eloquent\Model;
+use MongoDB\Laravel\Eloquent\Model;
 
 class Book extends Model
 {
