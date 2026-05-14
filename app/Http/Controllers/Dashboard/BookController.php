@@ -22,7 +22,7 @@ class BookController extends Controller
     {
         //$this->testBelongsManyFK();
         //$types = Book::distinct()->get(['type']);
-        $types = DB::collection('books_collection')->distinct()->get(['type']);
+        $types = Book::distinct()->get(['type']);
         $books = Book::orderBy('created_at', 'desc');
 
         //*** filtro
